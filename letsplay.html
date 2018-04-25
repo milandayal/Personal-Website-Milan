@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Font -->
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+      
+    <style type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        
+        @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|VT323|Oswald');
+
+body {
+background: #1FA2FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+}
+
+.simon-wrap {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.simon-board {
+  margin: 50px auto;
+  width: 480px;
+  height: 480px;
+  border: solid 10px #333;
+  border-radius: 50%;
+  box-shadow: 0px 0px 12px #222;
+  background-color: #333;
+}
+
+.pad {
+ margin: 0;
+ float: left;
+ position: relative;
+ width: 230px;
+ height: 230px;
+ border: 12px solid #333;
+ z-index: 8;
+}
+
+.green {
+  background-color: #00a74a;
+  border-radius: 300px 0 0 0;
+}
+
+.green.light {
+   background-color: #13ff7c;
+}
+
+.red.light {
+  background-color:#ff4c4c;
+}
+
+
+
+.blue.light {
+  background-color: #1c8cff;
+}
+
+.red {
+  background-color: #9f0f17;
+  border-radius: 0 300px 0 0;
+}
+
+.yellow.light {
+ background-color: #fed93f;
+}
+
+.yellow {
+  background-color: #cca707;
+  border-radius: 0 0 0 300px;
+}
+
+.blue {
+  background-color: #094a8f;
+  border-radius: 0 0 300px 0;
+}
+
+.controls {
+  width: 225px;
+  height: 225px;
+  margin-left: 121px;
+  margin-top: 126px;
+  background-color: #fff;
+  border: solid 15px #333;
+  border-radius: 150px;
+  position: absolute;
+  z-index: 10;
+  background-color: #ECE7EE;
+}
+
+.title {
+  margin-top: 16px;
+  font-size: 30px;
+  font-weight: bold;
+  maring-bottom: 10px;
+}
+
+.inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.display {
+  width: 50px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: #DC0D29;
+  font-size: 40px;
+  background-color: #32050C;
+  vertical-align: middle;
+  margin: 0 auto;
+  line-height: 40px;
+  font-family: 'VT323', monospace;
+}
+
+
+
+.round-btn {
+  width: 25px;
+  height: 25px;
+  background-color: yellow;
+  border-radius: 100%;
+  border: 4px solid #444;
+  box-shadow: 0px 2px 3px #222;
+  margin-left: 5px;
+}
+
+.round-btn:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.button-area {
+  margin: 8px 0px -2px 0px;
+}
+
+
+.button-area div {
+  margin: 0px 4px;
+}
+
+
+.strict-indicator {
+    position: relative;
+    left: 157px;
+    top: -72px;
+    background: #333;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #222;
+}
+
+.red {
+  background: red;
+}
+
+.red {
+  background-color: red;
+}
+
+
+.button-area div p{
+  font-size: 11px;
+  padding-top: 4px;
+}
+
+.btn-div {
+  position: relative;
+  top: 8px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 53px;
+    height: 26px;
+    position: relative;
+    bottom: 12px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switchContainer .switch-label {
+    position: relative;
+    bottom: 28px;
+    font-size: 12px;
+}
+
+.unclickable {
+  pointer-events: none;
+}
+
+@media (max-width: 550px) { 
+  
+  .simon-board {
+    margin: 50px auto;
+    width: 350px;
+    height: 350px;
+    border: solid 8px #333;
+    border-radius: 50%;
+    box-shadow: 0px 0px 12px #222;
+    background-color: #333;
+  }
+  
+    .pad {
+     margin: 0;
+     float: left;
+     position: relative;
+     width: 165px;
+     height: 165px;
+     border: 8px solid #333;
+     z-index: 8;
+  }
+  
+  .controls {
+    width: 175px;
+    height: 175px;
+    margin-left: 80px;
+    margin-top: 80px;
+    background-color: #fff;
+    border: solid 15px #333;
+    border-radius: 150px;
+    position: absolute;
+    z-index: 10;
+    background-color: #ECE7EE;
+}
+  
+  .title {
+    margin-top: 16px;
+    font-size: 15px;
+    font-weight: bold;
+    maring-bottom: 10px;
+  }
+  
+  .display {
+  width: 40px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: #DC0D29;
+  font-size: 25px;
+  background-color: #32050C;
+  vertical-align: middle;
+  margin: 0 auto;
+  line-height: 30px;
+  font-family: 'VT323', monospace;
+}
+  
+  
+ .button-area div {
+   margin: 0px 2px;
+}
+  
+  .btn-div {
+    position: relative;
+    top: 2px;
+ 
+}
+
+ .button-area div p {
+    font-size: 9px;
+    padding-top: 4px;
+}
+  
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 20px;
+    position: relative;
+    bottom: 12px;
+}
+  
+ .slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 2px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.switchContainer .switch-label {
+    position: relative;
+    bottom: 27px;
+    font-size: 10px;
+}
+  
+.strict-indicator {
+    position: relative;
+    left: 118px;
+    top: -72px;
+    background: #333;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #222;
+}
+  
+  .red {
+    background: red;
+  }
+ 
+}
+
+ 
+        
+        
+        
+        
+        
+        
+      </style>
+
+    <title>Did I Made Projects ?</title>
+  </head>
+  <body>
+  <div class="container">
+  <div class="simon-wrap">
+    <div class="simon-board">
+      <div id="0" class="pad green"></div>
+      <div id="1" class="pad red"></div>
+      <div id="2" class="pad yellow"></div>
+      <div id="3" class="pad blue"></div>
+      <div class="controls">
+        <div class="title">MILAN</div>
+        
+        <div class="button-area">
+          <div class="inline">
+            <div class="display">--</div>
+            <p>COUNT</p>
+          </div>
+          <div class="inline btn-div">
+            <div class="round-btn red" id="start"></div>
+            <p>START</p>
+          </div>
+          <a href="index.html"><div class="inline btn-div">
+            <div class="round-btn" id="strict"></div>
+            <p>EXIT</p>
+              </div></a>
+          <div class="strict-indicator"></div>
+        </div>
+     
+        
+        <div class="switchContainer">
+          <span class="switch-label">OFF</span>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          <span class="switch-label">ON</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      
+      
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            
+         $(document).ready(function(){
+  let gameOn;
+  let count = 0;
+  let strict = false;
+  let computerTurn = true;
+  let computerMoves = [];
+  let playerMoves;
+  let newMove = true;
+  var sounds = {
+    0: new Audio('http://seanromerokelly.com/sounds/green.m4a'), 
+    1: new Audio('http://seanromerokelly.com/sounds/red.m4a'), 
+    2: new Audio('http://seanromerokelly.com/sounds/yellow.m4a'), 
+    3: new Audio('http://seanromerokelly.com/sounds/blue.m4a')
+  }
+  
+ 
+  
+  function turnOff() {
+    $(".display").text("--");
+    hardReset();
+    $(".pad").addClass("unclickable");
+  }
+  
+  function turnOn(){
+    $(".display").text("00");
+    $(".pad").removeClass("unclickable");
+  } 
+  
+  function playerFlash(ID) {
+    function addLight(el) {
+      setTimeout(function(){ 
+        $(`#${el}`).addClass("light");
+      },10);
+    }
+    function removeLight(el) {
+      setTimeout(function(){ 
+        $(`#${el}`).removeClass("light");
+      },400);
+    }
+    addLight(ID);
+    removeLight(ID);
+    sounds[ID].load();
+    sounds[ID].play();
+  }
+  
+  function clearPlayer() {
+    playerMoves = [];
+  }
+  
+  function addToPlayer(id) {
+    playerMoves.push(id);
+    console.log("player moves " + playerMoves);
+    console.log("computer moves " + computerMoves);
+  }
+  
+  function playerTurn(x) {
+    if (playerMoves[playerMoves.length - 1] !== computerMoves[playerMoves.length - 1]) {
+      if(strict) {
+        alert("Try again! ...From scratch!");
+        startGame();
+      } else {
+        alert("Wrong move, try again");
+        count--;
+        newMove = false;
+        computerMove();
+      }
+    } else {
+      playerFlash(x);
+      if (count == 20) {
+        alert("Winner winner chicken dinner!");
+        resetGame();
+      }
+      if (playerMoves.length == computerMoves.length) {
+        newMove = true;
+        computerMove();
+      }
+    }
+  }
+  
+  function playerMove(){
+    $(".pad").removeClass("unclickable");
+    clearPlayer();
+    $(".pad").unbind().on("click",function(){
+       var ID = parseInt($(this).attr("id"));
+       addToPlayer(ID);
+       playerTurn(ID);
+    });
+  }
+  
+  function computerFlash(ID) {
+    function addLight(el) {
+      setTimeout(function(){ 
+        $(`#${el}`).addClass("light");   
+      }, 500);
+    }
+    
+    function playSound(el) {
+      setTimeout(function(){ 
+        sounds[el].load();
+        sounds[el].play(); 
+      }, 500);
+    }
+    
+    function removeLight(el) {
+      setTimeout(function(){ 
+        $(`#${el}`).removeClass("light");
+      }, 1300);
+    }
+   
+    addLight(ID);
+    removeLight(ID);
+    playSound(ID);
+  }
+  
+  function computerMove(){
+    var i = 0;   
+    let randomPad = Math.floor(Math.random() * 4);
+    count++;
+    if (newMove) {
+      computerMoves.push(randomPad);
+    }
+    function computerLoop () {           
+      setTimeout(function () {
+         computerFlash(computerMoves[i]);
+         i++;
+          if (i < count) { 
+            computerLoop();
+          } else if (i == count) {
+            playerMove();
+          } else {
+            playerMove();
+          }
+       }, 1000);
+    }
+    
+    computerLoop();
+    
+    if (count < 1) {
+        $(".display").text("00");
+      } else if (count < 10) {
+        $(".display").text("0" + count);
+      } else {
+        $(".display").text(count);
+      }
+    
+    $(".pad").addClass("unclickable");
+  }
+  
+  function resetGame() {
+    count = 0;
+    computerTurn = true;
+    computerMoves = [];
+    playerMoves = [];
+    newMove = true;
+    computerMove();
+  }
+  
+  function hardReset() {
+    count = 0;
+    strict = false;
+    computerTurn = true;
+    computerMoves = [];
+    playerMoves = [];
+    newMove = true;
+  }
+  
+  
+      
+  function startGame() {
+    if (gameOn) {
+      resetGame();
+      console.log(count);
+      if (count == 0) {
+        $(".display").text("00");
+      }
+    }  
+  }
+  
+  $(".switch input").on("click", function(){
+    if(!gameOn){
+      turnOn();
+      gameOn = true;
+    } else {
+      turnOff();
+      gameOn = false;
+    }
+  });
+  
+  $("#start").on("click", function(){
+    if(gameOn) {
+      startGame();
+    }
+  });
+  
+  $("#strict").on("click", function(){
+    if(gameOn) {
+      if (strict) {
+        strict = false;
+        $('.strict-indicator').removeClass("red");
+      } else {
+        strict = true;
+        $('.strict-indicator').addClass("red");
+      }
+    }
+    
+    
+  });   
+                
+       
+});
+  
+                
+      </script>
+      
+      
+  </body>
+</html>

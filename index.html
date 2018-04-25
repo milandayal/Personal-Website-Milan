@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Font -->
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+      
+    <style type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        
+        
+        @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300);
+@font-face {
+  font-family: 'demo-icomoon';
+  src:url('https://sarasoueidan.com/blog//windows8-animations/SourceCode/fonts/demo-icomoon.eot');
+  src:url('https://sarasoueidan.com/blog//windows8-animations/SourceCode/fonts/demo-icomoon.eot?#iefix') format('embedded-opentype'),
+    url('https://sarasoueidan.com/blog//windows8-animations/SourceCode/fonts/demo-icomoon.woff') format('woff'),
+    url('https://sarasoueidan.com/blog//windows8-animations/SourceCode/fonts/demo-icomoon.ttf') format('truetype'),
+    url('https://sarasoueidan.com/blog//windows8-animations/SourceCode/fonts/demo-icomoon.svg#demo-icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: 'demo-icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+html{
+  height:100%;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}
+body{
+  width:100%;
+  height:100%;
+  line-height:1.5;
+  font-family:'Lato', sans-serif;
+  font-weight:300;
+  font-size:16px;
+
+}
+ul{
+  list-style-type: none;
+}
+.demo-wrapper{
+  background:url("https://sarasoueidan.com/blog/windows8-animations/SourceCode/images/1.png");
+  background-size:cover;
+  padding:4em .5em;
+  width:100%;
+  perspective:3300px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid #eee;
+}
+.dashboard{
+  margin:0 auto;
+  width:100%;
+  padding:1em;
+}
+.col1, .col2, .col3{
+  width:99%;
+  margin:1em auto;
+}
+
+.page{
+  width:0;
+  width:100%;
+  height:100%;
+  color:white;
+  text-align:center;
+  font-size:3em;
+  font-weight:300;
+  position:absolute;
+  right:0;
+  top:0;
+  opacity:0;
+  transform-origin: 100% 0%;
+  transform:rotateY(-90deg) translateZ(5em);
+}
+
+.page-title {
+  margin-top:1em;
+  font-weight:100;
+  font-size:2.5em;
+}
+.close-button{
+  font-size:1em;
+  width:1em;
+  height:1em;
+  position:absolute;
+  top:1.25em;
+  right:1.25em;
+  cursor:pointer;
+  border:1px solid black;
+  line-height:.8em;
+  text-align:center;
+}
+
+.big, .small{
+  float:left;
+  margin:0 auto 1%;
+  color:white;
+  font-size:2em;
+  text-align:center;
+  height:4.5em;
+  font-weight:300;
+  overflow:hidden;
+  padding:.75em 1em;
+  cursor:pointer;
+  transition:all 0.3s ease-out;
+}
+.big:hover, .small:hover{
+  background:white;
+}
+.big{
+  width:100%;
+}
+.small{
+  width:49%;
+  margin-right:2%;
+}
+.big p {
+  line-height:1.5;
+  margin-top:.6em;
+  padding:0 .3em;
+  transition:all 0.3s ease-out;
+}
+.small.last{
+  margin-right:0;
+}
+
+/*icon fonts styles*/
+
+.icon-font{
+  font-size:2em;
+  line-height:1.6 !important;
+}
+.big .icon-font{
+  float:left;
+}
+.lock-thumb .icon-font{
+  margin-left:25%;
+}
+
+/*styling the boxes/thumbs*/
+
+.weather-thumb {background:#F2854C;}
+.weather-thumb:hover {color:#F2854C;}
+
+.paint-thumb {background:#85A9C3;}
+.paint-thumb:hover {color:#85A9C3;}
+
+.cpanel-thumb {background:#83A8C3;}
+.cpanel-thumb:hover {color:#83A8C3;}
+
+.games-thumb {background:#04ACAD;}
+.games-thumb:hover {color:#04ACAD;}
+
+.news-thumb, .calculator-thumb {background:#EBB741;}
+.news-thumb:hover, .calculator-thumb:hover {color:#EBB741;}
+
+.videos-thumb, .code-thumb{background:#BEA881;}
+.videos-thumb:hover, .code-thumb:hover{color:#BEA881;}
+
+.lock-thumb, .alarm-thumb {background:#EF3A5B;}
+.lock-thumb:hover, .alarm-thumb:hover {color:#EF3A5B;}
+
+.git-thumb, .favorites-thumb, .notes-thumb {background:#385E82;}
+.git-thumb:hover, .favorites-thumb:hover, .notes-thumb:hover {color:#385E82;}
+
+.photos-thumb {background:#BEA881;}
+.photos-thumb:hover {color:#BEA881;}
+
+.calendar-thumb, .organizer-thumb {background:#8BBA30;}
+.calendar-thumb:hover, .organizer-thumb:hover {color:#8BBA30;}
+
+.todos-thumb {background:#2FB1BE;}
+.todos-thumb:hover {color:#2FB1BE;}
+
+.todos-thumb p{
+  margin-top:.8em;
+}
+.todos-thumb-span{
+  display:block;
+  margin-top:1.5em;
+}
+.todos-thumb:hover p{
+  margin-top:-2.7em;
+}
+
+
+
+/*styling the pages*/
+.page.random-page{
+  background:#DFD4C1;
+}
+.page.todos{
+  background:#2FB1BE;
+}
+  .todos ul{
+    margin: 50px auto;
+    width:60%;
+    list-style-type: none;
+  }
+    .todos li{
+      padding:5px 10px;
+      text-align:left;
+      background:black;
+      border-left:5px solid #EF3A5B;
+      color:#444;
+      font-weight:300;
+      font-size:0.5em;
+      margin-bottom:15px;
+    }
+      .delete-button{
+        font-size:0.7em;
+        float:right;
+        line-height:25px;
+      }
+
+.slidePageInFromLeft{
+  animation: slidePageInFromLeft .8s cubic-bezier(.01,1,.22,.99) 1 0.25s normal forwards;
+  }
+.openpage{
+  animation: rotatePageInFromRight 1s cubic-bezier(.66,.04,.36,1.03) 1 normal forwards;
+}
+.slidePageBackLeft{
+  opacity:1;
+  left:0;
+  animation: slidePageBackLeft .8s ease-out 1 normal forwards;
+}
+.slidePageLeft{
+  opacity:1;
+  transform: rotateY(0) translateZ(0) ;
+  animation:slidePageLeft .8s ease-out 1 normal forwards;
+}
+.fadeOutback{
+  animation: fadeOutBack 0.3s ease-out 1 normal forwards;
+}
+.fadeInForward-1, .fadeInForward-2, .fadeInForward-3 {
+  opacity:0;
+  transform: translateZ(-5em) scale(0.75);
+  animation: fadeInForward .5s cubic-bezier(.03,.93,.43,.77) .4s normal forwards;
+}
+.fadeInForward-2{
+  animation-delay: .55s;
+}
+.fadeInForward-3{
+  animation-delay: .7s;
+}
+
+
+@keyframes fadeOutBack{
+  0%{transform: translateX(-2em) scale(1); opacity:1;}
+  70% {transform: translateZ(-5em) scale(0.6); opacity:0.5;}
+  95% {transform: translateZ(-5em) scale(0.6); opacity:0.5;}
+  100% {transform: translateZ(-5em) scale(0); opacity:0;}
+}
+
+@keyframes fadeInForward{
+  0%{transform: translateZ(-5em) scale(0); opacity:0;}
+  100% {transform: translateZ(0) scale(1); opacity:1;}
+}
+
+@keyframes rotatePageInFromRight{
+  0% {transform:rotateY(-90deg) translateZ(5em);opacity:0}
+  30%{opacity:1}
+  100%{transform: rotateY(0deg) translateZ(0) ; opacity:1}
+}
+
+@keyframes slidePageLeft{
+  0%{left:0; transform: rotateY(0deg) translateZ(0) ; opacity:1}
+  70%{opacity:1;}
+  100%{opacity:0; left:-150%; transform: rotateY(0deg)}
+}
+
+@keyframes slidePageInFromLeft{
+  0%{opacity:0; }
+  30%{opacity:1}
+  100%{opacity:1; left:0;}
+}
+
+@keyframes slidePageBackLeft{
+  0%{opacity:1; left:0; transform: scale(0.95);}
+  10%{transform: scale(0.9);}
+  70%{opacity:1;}
+  100%{opacity:0; left:-150%;}
+}
+
+
+
+@media screen and (min-width: 43.75em){/*700px*/
+  .col1,.col2,.col3{
+    float:left;
+    margin-right:1%;
+    width:49%;
+  }
+}
+@media screen and (min-width: 64em){
+  .col1,.col2,.col3{
+    float:left;
+    margin-right:.5%;
+    width:32%;
+  }
+  .col3{margin-right: 0;}
+  .col1{margin-left:2em;}
+  
+}
+        
+        
+        
+        
+        
+        
+        
+        
+      </style>
+
+    <title>Who Am I ?</title>
+  </head>
+  <body>
+  <div class="page todos">
+    <h2 class="page-title">My Todos</h2>
+    <ul contenteditable>
+      <li>Finish my 3D demo<span class="delete-button">x</span></li>
+      <li>Design my blog<span class="delete-button">x</span></li>
+      <li>Buy groceries<span class="delete-button">x</span></li>
+      <li>Finish my todo app<span class="delete-button">x</span></li>
+      <li>Organize my bookmarks<span class="delete-button">x</span></li>
+    </ul>
+    <div class="close-button">x</div>
+  </div>
+  
+  <div class="page random-page">
+    <h2 class="page-title">Some Awesome App!</h2>
+    <div class="close-button">x</div>
+  </div>
+
+  <div class="dashboard clearfix">
+      <div class="col1 clearfix">
+        <div class="big todos-thumb" data-page="todos">
+          <p>Welcome
+            <span class="todos-thumb-span">Hello, My name is Milan!</span>
+          </p>
+        </div>
+        <div class="small lock-thumb">
+          <span class="icon-font center" aria-hidden="true" data-icon="&#xe00d;"></span>
+        </div>
+        <div class="small last cpanel-thumb" data-page="random-page">
+          <span class="icon-font" aria-hidden="true" data-icon="&#xe016;"></span>
+        </div>
+        <a href="projects.html"><div class="big notes-thumb" data-page="random-page">
+          <span class="icon-font" aria-hidden="true" data-icon="&#xe000;"></span>
+            <p>Did I made projects?</p>
+            </div></a>
+          <a href="whatelse.html"><div class="big calculator-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe017;"></span><p>What else?</p></div></a>
+      </div>
+      <div class="col2 clearfix">
+          <a href="whoami.html"><div class="big organizer-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe015;"></span><p>Who Am I?</p></div></a>
+          <a href="education.html"><div class="big news-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe00f;"></span><p>What did I study?</p></div></a>
+        <div class="small calendar-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe00a;"></span></div>
+        <div class="small last paint-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe014;"></span></div>
+          <a href="letsbefriends.html"><div class="big weather-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe012;"></span><p> Let's be friends?</p></div></a>
+      </div>
+      <div class="col3 clearfix">
+          <a href="doiknowanything.html"><div class="big photos-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe001;"></span><p> Do I know anything?</p></div></a>
+        <div class="small alarm-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe009;"></span></div>
+        <div class="small last favorites-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe018;"></span></div>
+          <a href="letsplay.html"><div class="big games-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe002;"></span><p>Let's play?</p></div></a>
+        <div class="small git-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe010;"></span></div>
+        <div class="small last code-thumb" data-page="random-page"><span class="icon-font" aria-hidden="true" data-icon="&#xe011;"></span></div>
+      </div>
+  </div>
+</div>
+  
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      
+      
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            
+            $function showDashBoard(){
+      for(var i = 1; i <= 3; i++) {
+        $('.col'+i).each(function(){
+            $(this).addClass('fadeInForward-'+i).removeClass('fadeOutback');
+        });
+      }
+    }
+
+    function fadeDashBoard(){
+      for(var i = 1; i <= 3; i++) {
+        $('.col'+i).addClass('fadeOutback').removeClass('fadeInForward-'+i);
+      }
+    }
+    
+   // fadeDashBoard();
+   
+    $(".lock-thumb").click(function(){
+        fadeDashBoard();
+        $('.login-screen').addClass('slidePageInFromLeft').removeClass('slidePageBackLeft');
+    });
+    
+    $('#unlock-button').click(function(){
+          $('.login-screen').removeClass('slidePageInFromLeft').addClass('slidePageBackLeft');
+          showDashBoard();
+    });
+
+  $('.big, .small').each(function(){
+    var $this= $(this),
+        page = $this.data('page');
+    $this.on('click',function(){
+      $('.page.'+page).addClass('openpage');
+      fadeDashBoard();
+    })
+  });
+  $('.close-button').click(function(){
+    $(this).parent().addClass('slidePageLeft')
+          .one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+                $(this).removeClass('slidePageLeft').removeClass('openpage');
+              });
+      showDashBoard();
+  });
+  
+                
+      </script>
+      
+      
+  </body>
+</html>
